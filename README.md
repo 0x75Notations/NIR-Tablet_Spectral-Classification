@@ -36,6 +36,8 @@ An important detail from the original study: the 4 tablet types correspond to 4 
 | Random Forest | 88.5% |
 | XGBoost | 88.5% |
 
+![Confusion matrices for all three models](confusion_matrices.jpg)
+
 Both tree-based models substantially outperformed the linear baseline, suggesting the relationship between spectral shape and tablet type is nonlinear — consistent with the physical/chemical nature of NIR absorbance.
 
 **Key finding:** Types A and B were classified almost perfectly, while Types C and D were more frequently confused with one another. This is not a model weakness — it is consistent with the dataset's own documented chemistry: three of the four tablet types share the same relative active-ingredient concentration (8.0% w/w), making their spectral signatures inherently more similar. The model's errors track real chemical similarity rather than random noise, which is itself evidence that it learned a chemically meaningful pattern rather than an arbitrary one.
@@ -43,6 +45,8 @@ Both tree-based models substantially outperformed the linear baseline, suggestin
 ## Chemical Interpretation of Important Wavelengths
 
 The Random Forest model's most important wavelength regions were cross-checked against NIR spectroscopy reference literature:
+
+![Feature importance by wavelength](feature_importance.jpg)
 
 | Wavenumber Region | Tentative Assignment | Confidence |
 |---|---|---|
